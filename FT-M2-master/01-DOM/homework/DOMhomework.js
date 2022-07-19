@@ -1,6 +1,6 @@
 // Crear un array vacío llamado 'toDoItems'
 // Tu codigo acá:
-let toDoItems=[];
+let toDoItems= [] ;
 
 // En la página 'index.html' hay un elemento span cuyo texto es 'Aplicación creada por:'.
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
@@ -60,9 +60,9 @@ ToDo.prototype.completeToDo = function(){
 
 function buildToDo(todo, index) {
   // Tu código acá:
-  var toDoShell = document.createElement("div");
+  let toDoShell = document.createElement("div");
   toDoShell.setAttribute("class", "toDoShell");
-  var toDoText = document.createElement("span");
+  let toDoText = document.createElement("span");
   toDoText.innerHTML = todo.description
   toDoText.setAttribute('id', index)
   if (todo.complete){
@@ -80,7 +80,7 @@ function buildToDo(todo, index) {
 
 function buildToDos(toDos) {
   // Tu código acá:
-  var array = toDos.map(function(element,index){
+  let array = toDos.map(function(element,index){
     return buildToDo(element,index)
   })
   return array
@@ -98,9 +98,12 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
-  var toDoContainer = document.querySelector('#toDoContainer')
+  let toDoContainer = document.querySelector('#toDoContainer')
   toDoContainer.innerHTML = ""
-  var result = buildToDos(toDoItems)
+  let result = buildToDos(toDoItems)
+  result.forEach(element => {
+    toDoContainer.appendChild(element)
+ });
 }
 
 
@@ -115,10 +118,10 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
-  var value = document.getElementById('toDoInput').value
-  var myTodo = new ToDo(value)
+  let value = document.getElementById('toDoInput').value
+  let myTodo = new ToDo(value)
   toDoItems.push(myTodo)
-  var inpt = document.getElementById('toDoInput')
+  let inpt = document.getElementById('toDoInput')
   inpt.value = ""
   displayToDos()
 }
@@ -147,7 +150,7 @@ function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
   // const index = event.target.id;
   // Tu código acá:
-  var index = event.target.id 
+  let index = event.target.id 
   toDoItems[index].completeToDo()
   displayToDos()
 
