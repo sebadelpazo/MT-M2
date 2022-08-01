@@ -8,7 +8,7 @@ let toDoItems= [] ;
 // Tu código acá:
 
 let created = document.querySelector('#createdBy')
-created.innerHTML = created.innerHTML + "Sebastian"
+created.innerHTML = created.innerHTML + " Sebastián."
 
 
 
